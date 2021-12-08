@@ -2,30 +2,35 @@ package net.atos.api.cliente.domain;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class EnderecoVO {
 	
-	@NotNull(message = "Campo Id Endereço não pode ser nulo")
+	@NotNull(message = "Campo Id Endereço não pode ser nulo ou vazio")
 	private long idEnd;
 	
-	@NotNull(message = "Campo Rua não pode ser nulo")
+	@NotBlank(message = "Campo Rua não pode ser nulo ou vazio")
 	private String rua;
 	
+	@Pattern(regexp = "[0-9]+", message = "Apenas numeros")
 	private short numero;
+	
 	private String complemento;
 	
-	@NotNull(message = "Campo Bairro não pode ser nulo")
+	@NotBlank(message = "Campo Bairro não pode ser nulo ou vazio")
 	private String bairro;
 	
-	@NotNull(message = "Campo Cidade não pode ser nulo")
+	@NotBlank(message = "Campo Cidade não pode ser nulo ou vazio")
 	private String cidade;
 	
-	@NotNull(message = "Campo Estado não pode ser nulo")
+	@NotBlank(message = "Campo Estado não pode ser nulo ou vazio")
 	private String estado;
 	
+	@NotBlank(message = "Campo cep não pode ser nulo ou vazio")
 	private String cep;
 	
 	@NotNull(message = "Campo não pode ser nulo")
